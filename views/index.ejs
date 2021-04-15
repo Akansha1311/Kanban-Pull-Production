@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PE - Empro</title>
+    <%- include('./partials/head.ejs') %>
+    <link rel="manifest" href="/manifest.json" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="index__header board__header">
+        <a href="/" class="navbrand" style="background: none">
+          <img src="/images/logo.png" alt="Logo" />
+        </a>
+        <%if(auth) {%>
+        <a href="/logout" class="nav-link">Logout</a>
+        <a href="/task-limit/set-limit" class="nav-link">Set Limit</a>
+        <%} else {%>
+        <a href="/login" class="nav-link">Login</a>
+        <%}%>
+        <a href="/notification-board" class="nav-link">Notifications</a>
+      </header>
+      <main class="index__main">
+        <div class="index__panel left-panel">
+          <div class="panel__nav__wrapper">
+            <h2>Fabric Inspection Department</h2>
+            <div class="panel__nav">
+              <a href="/production-kanban-card">Production Kanban Card</a>
+              <a href="/fabric-inspection-board">Kanban Board</a>
+              <a href="/fabric-inspection-board/availableProducts"
+                >Available Products</a
+              >
+            </div>
+          </div>
+          <div class="panel__nav__wrapper">
+            <h2>Cutting Department</h2>
+            <div class="panel__nav">
+              <a href="/cutting-board">Kanban Board</a>
+              <a href="/cutting-board/availableProducts">Available Products</a>
+            </div>
+          </div>
+          <div class="panel__nav__wrapper">
+            <h2>Sewing Department</h2>
+            <div class="panel__nav">
+              <a href="/sewing-board">Kanban Board</a>
+              <a href="/rework-kanban-card">Rework Kanban Card</a>
+              <a href="/sewing-board/availableProducts">Available Products</a>
+            </div>
+          </div>
+          <div class="panel__nav__wrapper">
+            <h2>Finishing Department</h2>
+            <div class="panel__nav">
+              <a href="/finishing-board">Kanban Board</a>
+              <a href="/finishing-board/availableProducts"
+                >Available Products</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="index__panel right-panel">
+          <div class="panel__analyze__wrapper">
+            <a href="/analyze">Analyze Performance</a>
+          </div>
+          <img src="/images/logo.png" alt="Logo" class="analyze-logo" />
+        </div>
+      </main>
+      <audio id="notification" src="/sounds/notification.mp3" muted></audio>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io();
+      socket.on("workcycle complete", function (msg) {
+        document.getElementById("notification").muted = false;
+        document.getElementById("notification").play();
+        alert(msg);
+      });
+      socket.on("dept completed", (msg) => {
+        alert(msg);
+      });
+    </script>
+    <script src="/js/config.js"></script>
+  </body>
+</html>

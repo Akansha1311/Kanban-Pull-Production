@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PE EMPRO | Available Products</title>
+    <%- include("./partials/head.ejs") %>
+  </head>
+  <body>
+    <div class="container">
+      <header class="board__header">
+        <h2>Available Products</h2>
+        <a href="/" class="nav-link">Home</a>
+      </header>
+      <main class="available__main">
+        <div class="dept">
+          <h3>Fabric</h3>
+          <ul>
+            <% for(let i=0; i<fabric.length; i++) {%> 
+              <li class="card__li">
+                <% for(let key in fabric[i]) {%> 
+                  <% if(key !== 'id') {%> 
+                    <% if(key !== 'createdAt') {%> 
+                      <div><b><%=key %>:</b>  <%=fabric[i][key] %>  </div>
+                    <% } %> 
+                  <% } %>
+                <% } %>
+              </li>
+            <%}%>
+          </ul>
+        </div>
+        <div class="dept">
+          <h3>Cutting</h3>
+          <ul>
+            <% for(let i=0; i<cutting.length; i++) {%> 
+              <li class="card__li">
+                <% for(let key in cutting[i]) {%> 
+                  <% if(key !== 'id') {%> 
+                    <% if(key !== 'createdAt') {%> 
+                      <div><b><%=key %>:</b>  <%=cutting[i][key] %>  </div>
+                    <% } %> 
+                  <% } %>
+                <% } %>
+              </li>
+            <%}%>
+          </ul>
+        </div>
+        <div class="dept">
+          <h3>Sewing</h3>
+          <ul>
+            <% for(let i=0; i<sewing.length; i++) {%> 
+              <li class="card__li">
+                <% for(let key in sewing[i]) {%> 
+                  <% if(key !== 'id') {%> 
+                    <% if(key !== 'createdAt') {%> 
+                      <div><b><%=key %>:</b>  <%=sewing[i][key] %>  </div>
+                    <% } %> 
+                  <% } %>
+                <% } %>
+              </li>
+            <%}%>
+          </ul>
+        </div>
+        <div class="dept">
+          <h3>finishing</h3>
+          <ul>
+             <% for(let i=0; i<finishing.length; i++) {%> 
+              <li class="card__li">
+                <% for(let key in finishing[i]) {%> 
+                  <% if(key !== 'createdAt') {%> 
+                    <% if(key !== 'id') { %> 
+                      <div><b><%=key %>:</b>  <%=finishing[i][key] %>  </div>
+                    <% } %> 
+                  <% } %>
+                <% } %>
+              </li>
+            <%}%>
+          </ul>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

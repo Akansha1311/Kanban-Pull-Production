@@ -1,0 +1,29 @@
+#deleteNotifications {
+  background: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 16px 0;
+  color: black;
+  padding: 12px;
+  display: inline-block;
+}
+
+.notification__main {
+  background: white;
+  /* margin-top: 30px; */
+  border-radius: 5px;
+}
+
+.notification__main li {
+  /* margin: 1em 0; */
+  font-size: 18px;
+  padding: 2em 1em;
+  border-bottom: 1px solid lightgray;
+}
+
+.notification__main li p {
+  font-size: 14px;
+  color: gray;
+}

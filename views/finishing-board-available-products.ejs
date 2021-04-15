@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PE EMPRO | Finishing Department Available Products</title>
+    <%- include("./partials/head.ejs") %>
+  </head>
+  <body>
+    <div class="container">
+      <header class="board__header">
+        <h2> Finishing Department Available Products</h2>
+        <a href="/" class="nav-link">Home</a>
+      </header>
+      <main class="available__main">
+        <div class="filter__container">
+          <form class="prod__form filter__form" style="margin: 30px 0 30px 0" action="/finishing-board/filter" method="POST">
+            <h2>Filters</h2>
+            <div class="formgroup">
+              <label for="fabricName">Fabric Name: </label>
+              <input type="text" name="fabricName" id="fabricName">
+            </div>
+            <div class="formgroup">
+              <label for="fabricContent">Fabric Content: </label>
+              <input type="text" name="fabricContent" id="fabricContent">
+            </div>
+            <div class="formgroup">
+              <label for="date">Date: </label>
+              <input type="date" name="date" id="date">
+            </div>
+            <div class="formgroup">
+              <label for="fabricColour">Fabric Colour: </label>
+              <input type="text" name="fabricColour" id="fabricColour">
+            </div>
+            <div class="formgroup">
+              <label for="customer">Customer: </label>
+              <input type="text" name="customer" id="customer">
+            </div>
+            <div class="formgroup">
+              <label for="stylenumber">Style Number: </label>
+              <input type="text" name="stylenumber" id="stylenumber">
+            </div>
+            <input type="submit" value="Apply">
+            <a href="/finishing-board/availableProducts">Clear Filters</a>
+          </form>
+        </div>
+        <div class="dept">
+          <ul>
+            <% for(let i=0; i<data.length; i++) {%> 
+              <li class="card__li" style="display: flex; flex-direction: column; justify-content: space-between;">
+                <% for(let key in data[i]) {%> 
+                  <% if(key !== 'id') {%> 
+                    <% if(key !== 'createdAt') {%> 
+                        <% if(key == 'dateOfInspection') {%> 
+                            <% humanTime = moment(new Date(data[i][key])).format("ll") %> 
+                            <div><b><%=key %>:</b> <%=humanTime%></div>
+                        <%} else if(key == 'dateOfReceiving') {%> 
+                            <% humanReceivingTime = moment(new Date(data[i][key])).format('ll') %>
+                            <div><b><%=key %>:</b> <%=humanReceivingTime%></div>
+                        <% } else {%> 
+                            <div><b><%=key %>:</b>  <%=data[i][key] %>  </div>
+                        <% } %> 
+                    <% } %> 
+                  <% } %>
+                <% } %>
+                <div class="card__completed" style="margin-top: 8px">
+                  <a href="/finishing-board/delete/<%=data[i].id%>">Delete</a>
+                </div>
+              </li>
+            <%}%>
+          </ul>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

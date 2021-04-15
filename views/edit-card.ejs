@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PE EMPRO | EDIT CARD</title>
+    <%- include('./partials/head.ejs') %> 
+  </head>
+  <body>
+    <div class="container">
+      <header class="board__header">
+        <h2>Cutting Board</h2>
+        <a href="/" class="nav-link">Home</a>
+      </header>
+      <main>
+          <div class="edit-container">
+            <form  class="prod__form" action="/edit-card/<%=data[0].id%>" method="POST">
+                <% for(let i=0; i<data.length; i++) {%> 
+                  <% for(let key in data[i]) {%>
+                        <div class="formgroup">
+                          <label for="<%=key%>"><b><%=key %>:</b> </label>
+                          <input type="text" name="<%=key%>" value="<%=data[i][key]%>">
+                        </div>
+                      <% } %>
+                      <!-- <div class="card__completed"><a href="/edit-card/<%=data[i].id%>">Update</a></div> -->
+                  <%}%>
+                  <input type="submit" value="Update">
+            </form>
+          </div>
+      </main>
+    </div>
+  </body>
+</html>

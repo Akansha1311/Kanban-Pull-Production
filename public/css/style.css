@@ -1,0 +1,367 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --font-primary: #3c66fb;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  /* background: linear-gradient(to right, #acb6e5, #86fde8); */
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8)),
+    url("/images/bg-image.png");
+  /* background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat; */
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 1em 0.3em;
+}
+
+/*Index Styling*/
+
+.index__header {
+  background: white;
+  padding: 0 12px;
+  border-radius: 5px;
+}
+
+.index__main {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr;
+  gap: 20px;
+}
+
+.right-panel {
+  box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.1);
+  margin: 16px 0;
+  padding: 12px;
+}
+
+.panel__nav__wrapper {
+  padding: 12px;
+  border-radius: 5px;
+  margin: 16px 0;
+  box-shadow: 5px 1px 10px rgba(0, 0, 0, 0.1);
+  background: white;
+}
+
+.panel__nav__wrapper h2 {
+  font-weight: normal;
+  margin-bottom: 8px;
+}
+
+.panel__nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.panel__nav a {
+  margin: 8px 0;
+  color: var(--font-primary);
+}
+
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 5px;
+}
+
+.panel__analyze__wrapper {
+  background: black;
+  display: inline-block;
+  padding: 10px;
+  border-radius: 5px;
+  align-self: flex-end;
+}
+
+.panel__analyze__wrapper a {
+  color: white;
+}
+
+/*Index Styling*/
+
+/*Production Kanban card*/
+
+.prod__header {
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  border-radius: 5px;
+}
+
+.navbar a {
+  background: black;
+  padding: 12px 16px;
+  border-radius: 5px;
+  color: white;
+}
+
+.prod__main {
+  margin-top: 2em;
+}
+
+.prod__main h2 {
+  margin: 16px 0;
+  text-align: center;
+}
+
+.prod__form {
+  background: white;
+  max-width: 600px;
+  border-radius: 5px;
+  padding: 1em 2em;
+  margin: 0 auto;
+  margin-bottom: 12px;
+  box-shadow: 5px 1px 10px rgba(0, 0, 0, 0.1);
+}
+
+.formgroup {
+  display: flex;
+  flex-direction: column;
+  margin: 1em 0;
+}
+
+.formgroup input {
+  padding: 12px 16px;
+  outline: none;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.formgroup input:focus {
+  border: 1px solid var(--font-primary);
+}
+
+input[type="submit"] {
+  padding: 12px 18px;
+  background: var(--font-primary);
+  outline: none;
+  border: none;
+  font-family: "Poppins", sans-serif;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+/*Production Kanban card*/
+
+/*Fabric Inspection Board*/
+
+.board__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-radius: 5px;
+  background: white;
+}
+
+.board__header a {
+  padding: 12px;
+  color: white;
+  background: black;
+  border-radius: 5px;
+}
+
+.board__main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 1em 0;
+  gap: 10px;
+}
+
+.board__main > div {
+  overflow: scroll;
+}
+
+.board__main > div {
+  background: white;
+  border-radius: 5px;
+  height: 90vh;
+  padding: 1em;
+}
+
+.board__main h3 {
+  text-align: center;
+}
+
+.board__card {
+  margin-top: 16px;
+}
+.card__li {
+  padding: 10px;
+  border-radius: 5px;
+  background: rgb(238, 238, 238);
+  margin: 1.4em 0;
+}
+
+.card__li b {
+  font-size: 18px;
+  margin-right: 16px;
+}
+
+.card__completed {
+  margin-top: 16px;
+  padding: 12px;
+  background: black;
+  color: white;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.card__completed a {
+  color: white;
+  display: block;
+}
+
+/*Fabric Inspection Board*/
+
+/*Available Products*/
+
+.available__main h3 {
+  color: white;
+  text-transform: capitalize;
+}
+
+.available__main ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+}
+
+.dept {
+  margin: 2em 0;
+}
+
+.dept h3 {
+  text-align: center;
+}
+
+/*Available Products*/
+
+#customFields {
+  display: block;
+  margin: 1em 0;
+  padding: 12px;
+  background: black;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.analyze-logo {
+  max-width: 100%;
+  width: 50%;
+  align-self: center;
+  margin-top: 120px;
+}
+
+@media screen and (max-width: 1024px) {
+  /* .available__main {
+    grid-template-columns: 1fr;
+  } */
+
+  .dept {
+    overflow: hidden;
+  }
+
+  .dept ul {
+    display: flex;
+    margin-top: 16px;
+    overflow: scroll;
+  }
+
+  .dept ul li {
+    /* width: 300px; */
+    flex: 0 0 300px;
+    margin: 0 12px;
+  }
+
+  .available__main ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .index__main {
+    grid-template-columns: 1fr;
+  }
+
+  .board__main {
+    grid-template-columns: 1fr;
+  }
+
+  .board__header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .board__header * {
+    margin: 12px 0;
+  }
+  .available__main ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+.board__header * {
+  margin: 12px 0;
+}
+
+.start__div {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.start__div a {
+  background: rgb(37, 134, 37);
+  cursor: pointer;
+  color: white;
+  width: 100%;
+  display: block;
+  padding: 12px 0;
+  border-radius: 4px;
+}
+
+.start__div form input[type="submit"] {
+  width: 100%;
+}
+
+.cancel {
+  display: block;
+  background: rgb(206, 37, 37);
+  color: white;
+  border: none;
+  outline: none;
+  text-align: center;
+  width: 100%;
+  padding: 12px 0;
+  border-radius: 4px;
+  margin: 8px 0;
+  cursor: pointer;
+}

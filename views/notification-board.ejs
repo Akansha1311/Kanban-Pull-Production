@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PEE Empro | Notification Board</title>
+    <%- include("./partials/head.ejs") %>
+    <link rel="stylesheet" href="/css/style2.css">
+  </head>
+  <body>
+    <div class="container">
+      <header class="board__header">
+        <h2>Notification Board</h2>
+        <a href="/" class="nav-link">Home</a>
+      </header>
+      <main>
+        <a href="/notification-board/deleteall" id="deleteNotifications">Delete All</a>
+        <ul id="notificationMain" class="notification__main">
+          <% for(let i=0; i<data.length; i++){ %>
+          <li>
+            <%= data[i].dept %>
+            <p><%=data[i].published%></p>
+          </li>
+          <% } %>
+        </ul>
+      </main>
+      <audio id="notification" src="/sounds/notification.mp3" muted></audio>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="/js/notification.js" type="module"></script>
+  </body>
+</html>

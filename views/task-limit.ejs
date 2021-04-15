@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pee Empro || Task Limit</title>
+    <%- include("./partials/head.ejs") %>
+  </head>
+  <body>
+    <div class="container">
+      <header class="board__header">
+        <h2>Task Limit</h2>
+        <a href="/" class="nav-link">Home</a>
+      </header>
+      <main class="prod__main">
+        <form action="/task-limit/set-limit" method="POST" class="prod__form">
+          <div class="formgroup">
+            <label for="limit">Limit: </label>
+            <input required min="1" type="number" name="limit" id="limit" />
+          </div>
+          <input type="submit" value="Set Limit" />
+        </form>
+      </main>
+    </div>
+  </body>
+</html>

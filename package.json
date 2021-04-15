@@ -1,0 +1,31 @@
+{
+  "name": "kanban-pull-pee-empro",
+  "version": "1.0.0",
+  "description": "Implementation of Kanban Pull Production in form of website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon server"
+  },
+  "author": "Deepan Chakravarthi",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^3.2.0",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "moment": "^2.29.1",
+    "mongoose": "^5.11.13",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "shortid": "^2.2.16",
+    "socket.io": "^3.1.1",
+    "web-push": "^3.4.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

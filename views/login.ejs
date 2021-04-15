@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PE EMPRO || Login</title>
+    <%- include('./partials/head.ejs') %>
+  </head>
+  <body>
+    <div class="container">
+      <header class="board__header">
+        <h1>Login</h1>
+        <a href="/" class="nav-link">Home</a>
+      </header>
+
+      <main>
+        <form
+          action="/login"
+          class="prod__form"
+          style="margin-top: 50px; position: relative"
+          method="POST"
+        >
+          <div class="formgroup">
+            <p
+              style="color: red; font-size: 14px; position: absolute; top: 10px"
+            >
+              <%=message%> <%=data%>
+            </p>
+          </div>
+          <div class="formgroup">
+            <label for="email">Email: </label>
+            <input
+              type="email"
+              name="email"
+              required
+              id="email"
+              autofocus
+              autocomplete="username"
+            />
+          </div>
+          <div class="formgroup">
+            <label for="password">Password: </label>
+            <input
+              type="password"
+              name="password"
+              required
+              id="password"
+              autocomplete="current-password"
+            />
+          </div>
+          <input type="submit" value="Login" />
+        </form>
+      </main>
+    </div>
+  </body>
+</html>
