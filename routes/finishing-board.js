@@ -37,7 +37,7 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/availableProducts", async (req, res) => {
-  let data = await FinishingAvailableProducts.find({}, "-_id -__v").lean();
+  let data = await FinishingAvailableProducts.find({}, "-_id -__v").lean().sort({ createdAt: -1 });
   res.render(
     path.join(__dirname, "../", "/views/finishing-board-available-products"),
     { data }
