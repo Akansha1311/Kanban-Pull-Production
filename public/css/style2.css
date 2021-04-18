@@ -27,3 +27,34 @@
   font-size: 14px;
   color: gray;
 }
+.performance__main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.performance__main .dept ul {
+  display: block;
+}
+
+.performance__main .dept {
+  max-height: 100vh;
+  overflow: scroll;
+  padding: 12px 12px;
+  background: white;
+}
+
+.performance__main .dept h3 {
+  color: black;
+}
+
+@media screen and (max-width: 1024px) {
+  .performance__main {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .performance__main .dept ul li {
+    margin: 24px 0;
+  }
+}
