@@ -27,7 +27,7 @@ function checkAuth(req, res, next) {
 //Method = GET
 //Route = /fabric-inspection-board
 router.get("/", async (req, res) => {
-  let Kanbandata = await KanbanCard.find({}, "-_id -__v").lean().limit(5);
+  let Kanbandata = await KanbanCard.find({}, "-_id -__v").lean();
   let inProgressData = await FabricInspectionBoardInProgress.find(
     {},
     "-_id -__v"
