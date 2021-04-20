@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PE EMPRO | Available Pieces</title>
+    <%- include("./partials/head.ejs") %>
+  </head>
+  <body>
+    <div class="container">
+      <header class="board__header">
+        <h2> Available Pieces</h2>
+        <a href="/" class="nav-link">Home</a>
+      </header>
+      <main class="available__main">
+        <div class="filter__container">
+          <form class="prod__form filter__form" style="margin: 30px 0 30px 0" action="/cutting-board/filter" method="POST">
+            <h2>Filters</h2>
+            <div class="formgroup">
+              <label for="fabricName">Fabric Name: </label>
+              <input type="text" name="fabricName" id="fabricName">
+            </div>
+            <div class="formgroup">
+              <label for="fabricContent">Fabric Content: </label>
+              <input type="text" name="fabricContent" id="fabricContent">
+            </div>
+            <div class="formgroup">
+              <label for="date">Date: </label>
+              <input type="date" name="date" id="date">
+            </div>
+            <div class="formgroup">
+              <label for="fabricColour">Fabric Colour: </label>
+              <input type="text" name="fabricColour" id="fabricColour">
+            </div>
+            <div class="formgroup">
+              <label for="customer">Customer: </label>
+              <input type="text" name="customer" id="customer">
+            </div>
+            <div class="formgroup">
+              <label for="stylenumber">Style Number: </label>
+              <input type="text" name="stylenumber" id="stylenumber">
+            </div>
+            <div class="formgroup">
+              <label for="dateOfCutting">Date Of Cutting: </label>
+              <input type="date" name="dateOfCutting" id="dateOfCutting">
+            </div>
+            <input type="submit" value="Apply">
+            <a href="/cutting-board/availableProducts">Clear Filters</a>
+          </form>
+        </div>
+        <div class="dept">
+          <ul>
+            <% for(let i=0; i<data.length; i++) {%> 
+              <li class="card__li" style="display: flex; flex-direction: column; justify-content: space-between;">
+                <% for(let key in data[i]) {%> 
+                  <% if(key !== 'id') {%> 
+                    <% if(key !== 'createdAt') {%> 
+                      <% if(key !== "published") {%> 
+                        <% if(key !== "startedAt")  {%> 
+                          <% if(key == 'dateOfInspection') {%> 
+                            <% humanTime = moment(new Date(data[i][key])).format("ll") %> 
+                            <div><b><%=key %>:</b> <%=humanTime%></div>
+                        <%} else if(key == 'dateOfReceiving') {%> 
+                            <% humanReceivingTime = moment(new Date(data[i][key])).format('ll') %>
+                            <div><b><%=key %>:</b> <%=humanReceivingTime%></div>
+                        <% } else {%> 
+                            <div><b><%=key %>:</b>  <%=data[i][key] %>  </div>
+                        <% } %> 
+                        <% } %> 
+                      <% } %> 
+                    <% } %> 
+                  <% } %>
+                <% } %>
+                <div>
+                    <div class="start__div">
+                      <form style="display: none;" action="/cutting-board/start/<%=data[i]['id']%>" method="POST" class="prod__form">
+                        <input type="hidden" name="id" value="<%=data[i]["id"]%>">
+                        <div class="formgroup">
+                          <label for="piecesCut">Number of Pieces:</label>
+                          <input type="number" required name="piecesCut" min="1" max="<%=data[i]["piecesCut"] ? data[i]["piecesCut"] : 0%>">
+                        </div>
+                        <div class="formgroup">
+                          <label for="dateOfSewing">Date Of Sewing:</label>
+                          <input type="date"  name="dateOfSewing">
+                        </div>
+                        <input type="submit" value="Start">
+                        <button type="button" class="cancel">Cancel</button>
+                      </form>
+                      <a class="start-edit">Start</a>
+                    </div>
+                    <div class="card__completed" style="margin-top: 8px">
+                      <a href="/cutting-board/delete/<%=data[i].id%>">Delete</a>
+                    </div>
+                  </div>
+              </li>
+            <%}%>
+          </ul>
+        </div>
+      </main>
+    </div>
+    <script>
+        let startEdit = document.querySelectorAll(".start-edit");
+        let cancel = document.querySelectorAll(".cancel");
+  
+        cancel.forEach(e => {
+          e.addEventListener("click", () => {
+            e.parentElement.parentElement.children[0].style.display = 'none';
+            e.parentElement.parentElement.children[1].style.display = 'block'
+          })
+        })
+  
+        startEdit.forEach(e => {
+          e.addEventListener("click", () => {
+            e.style.display = 'none';
+            e.parentElement.children[0].style.display = 'block'
+          })
+        })
+      </script>
+  </body>
+</html>
