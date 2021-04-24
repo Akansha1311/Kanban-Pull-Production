@@ -28,7 +28,6 @@
                   <% } %>
                   <% fabricTimeDiff =  moment(fabric[i]["published"], "llll").diff(moment(fabric[i]['startedAt'], "llll"), 'm')%> 
                 <% } %>
-                      <div class="timeDiff"><b>Lead Time</b><%=Math.abs(fabricTimeDiff)%> mins</div>
               </li>
             <%}%>
           </ul>
@@ -47,7 +46,6 @@
                   <% } %>
                   <% cuttingTimeDiff =  moment(cutting[i]["published"], "llll").diff(moment(cutting[i]['startedAt'], "llll"), 'm')%> 
                 <% } %>
-                <div class="timeDiff"><b>Lead Time</b><%=Math.abs(cuttingTimeDiff)%> mins</div>
               </li>
             <%}%>
           </ul>
@@ -66,7 +64,6 @@
                   <% } %>
                   <% sewingTimeDiff =  moment(sewing[i]["published"], "llll").diff(moment(sewing[i]['startedAt'], "llll"), 'm')%> 
                 <% } %>
-                <div class="timeDiff"><b>Lead Time</b><%=Math.abs(sewingTimeDiff)%> mins</div>
               </li>
             <%}%>
           </ul>
@@ -85,7 +82,6 @@
                   <% } %>
                   <% finishingTimeDiff =  moment(finishing[i]["published"], "llll").diff(moment(finishing[i]['startedAt'], "llll"), 'm')%> 
                 <% } %>
-                <div class="timeDiff"><b>Lead Time</b><%=Math.abs(finishingTimeDiff)%> mins</div>
               </li>
             <%}%>
           </ul>
