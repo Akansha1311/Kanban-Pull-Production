@@ -32,7 +32,7 @@ router.get("/", async (req, res) => {
   let cuttingData = await cuttingBoard.find({}, "-_id -__v -startedAt").lean();
   let inProgress = await CuttingBoardInProgress.find({}, "-_id -__v").lean();
   let completed = await CuttingBoardCompleted.find({}, "-_id -__v")
-    .sort({ dateOfCutting: -1 })
+    .sort({ creaedAt: -1 })
     .limit(5)
     .lean();
   res.render(path.join(__dirname, "../", "/views/cutting-board"), {
