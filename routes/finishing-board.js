@@ -26,7 +26,7 @@ router.get("/", async (req, res) => {
   let data = await FinishingBoard.find({}, "-_id -__v -startedAt").lean();
   let inProgress = await FinishingBoardInProgress.find({}, "-_id -__v").lean();
   let completed = await FinishingBoardCompleted.find({}, "-_id -__v")
-    .sort({ dateOfFinishing: 1 })
+    .sort({ dateOfFinishing: -1 })
     .limit(5)
     .lean();
   res.render(path.join(__dirname, "../", "/views/finishing-board"), {
