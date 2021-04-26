@@ -33,7 +33,7 @@ router.get("/", async (req, res) => {
     "-_id -__v"
   ).lean();
   let completedData = await FabricInspectionBoardCompleted.find({}, "-_id -__v")
-    .sort({ date: -1 })
+    .sort({ createdAt: -1 })
     .limit(5)
     .lean();
   res.render(path.join(__dirname, "../", "/views/fabric-inspection-board"), {
