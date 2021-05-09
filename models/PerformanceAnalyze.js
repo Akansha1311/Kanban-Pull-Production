@@ -51,7 +51,6 @@ let PerformanceAnalyzeSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now,
-      indexes: { expires: "30d" },
     },
   },
   { strict: false }
